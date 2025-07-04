@@ -19,5 +19,27 @@ public class UserController {
 	{
 		return userService.saveuser(u);
 	}
+	@GetMapping("/allusers")
+	public ResponseEntity<?> usersall(){
+		return userService.usersall();
+	}
+	
+	@GetMapping("/users/gender/male")
+	public ResponseEntity<?> findAllMaleUsers(){
+		return userService.findAllMaleUsers();
+	}
+	
+	@GetMapping("users/gender/female")
+	public ResponseEntity<?> findAllFemaleUsers(){
+		
+		return userService.findAllFemaleUsers();
+	}
+	
+	@GetMapping("/users/best-match/{id}/{top}")
+	public ResponseEntity<?> findBestMatch(@PathVariable int id ,@PathVariable int top){
+		
+		return userService.findBestMatch(id,top);
+		
+	}
 	
 }
